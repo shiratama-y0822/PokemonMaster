@@ -6,7 +6,7 @@
 |---|---|
 | API名称 | 図鑑詳細API |
 | HTTPメソッド | GET |
-| URL | /zukan/{id} |
+| URL | /zukan/{pokemonId} |
 | 認証要否 | 要 |
 
 ## リクエスト
@@ -15,7 +15,7 @@
 
 | 英名 | 型 | 必須 | 備考 |
 |---|---|---|---|
-| id | Integer | x | 図鑑番号 |
+| pokemonId | Integer | x | 図鑑番号 |
 
 ### クエリパラメータ
 
@@ -34,7 +34,7 @@
 
 | 英名 | 型 | 備考 |
 |---|---|---|---|
-| id | int | xx |
+| pokemonId | int | xx |
 | name | string | xx |
 | gender | int | xx |
 | category | string | xx |

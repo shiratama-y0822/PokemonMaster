@@ -22,7 +22,7 @@
 | 英名 | 型 | 必須 | 備考 |
 |---|---|---|---|
 | name | string | x | 部分一致 |
-| id | int | x | 完全一致 |
+| pokemonId | int | x | 完全一致 |
 | type | string | x | 最大2種類、AND検索 |
 
 ### リクエストボディ
@@ -35,8 +35,9 @@
 
 | 英名 | 型 | 備考 |
 |---|---|---|---|
-| id | int | 図鑑番号 |
+| pookemonId | int | 図鑑番号 |
 | name | string | 日本語名 |
+| image | String | ポケモンの画像URL |
 
 ## ステータスコード
 
