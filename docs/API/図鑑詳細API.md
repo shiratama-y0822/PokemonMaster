@@ -34,14 +34,14 @@
 
 | 英名 | 型 | 備考 |
 |---|---|---|---|
-| pokemonId | int | xx |
-| name | string | xx |
-| gender | int | xx |
-| category | string | xx |
-| type | string | xx |
-| height | string | xx |
-| weight | string | xx |
-| baseStats | string | xx |
+| pokemonId | int | 図鑑番号 |
+| name | string | 日本名 |
+| gender | int | 性別 |
+| category | string | ポケモンの分類 |
+| type | string | タイプ |
+| height | string | 高さ |
+| weight | string | 重さ |
+| baseStats | string | 種族値 |
 
 ## ステータスコード
 
