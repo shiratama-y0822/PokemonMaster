@@ -16,4 +16,4 @@
 |---|---|---|---|---|---|
 | userId | ユーザーアイディー | int | o | PK | 重複を許可しない |
 | username | ユーザーネーム | varchar（12） | o | PK | 重複を許可しない |
-| password | パスワード | varchar(64) | o | FK |  |
+| password | パスワード | varchar(64) | o | FK | ハッシュ化した値を保存 |
