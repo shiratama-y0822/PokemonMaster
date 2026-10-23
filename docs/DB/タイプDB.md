@@ -14,5 +14,5 @@
 
 | 英名 | 和名 | 型 | 必須 | PK/FK | 備考 |
 |---|---|---|---|---|---|
-| typeId | タイプID | int | o | PK | タイプを識別 |
-| typeName | タイプ名 |VARCHAR(5) | o |  | 日本名 |
+| type_id | タイプID | smallint | o | PK | タイプを識別 |
+| type_name | タイプ名 |VARCHAR(5) | o |  | 日本名 |

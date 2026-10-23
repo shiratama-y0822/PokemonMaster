@@ -27,14 +27,16 @@
 
 | 英名 | 型 | 必須 | 備考 |
 |---|---|---|---|
-| username | string(12) | o | ログインに使用するユーザー名 |
+| user_id | string(16) | o | ログインに使用するID |
+| nickname | string(6) | o | ログインに使用するユーザー名 |
 | password | string(64) | o | ログインに使用するパスワード |
 
 ## レスポンス
 
 | 英名 | 型 | 備考 |
 |---|---|---|---|
-| username | string | ユーザー名 |
+| username | string | ユーザー名（ヘッダー表示用） |
+| JWT | string | setCookieで返却 |
 
 ## ステータスコード
 
