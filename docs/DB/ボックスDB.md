@@ -14,10 +14,8 @@
 
 | 英名 | 和名 | 型 | 必須 | PK/FK | 備考 |
 |---|---|---|---|---|---|
-| userId | ユーザーアイディー | int | o | FK | 重複を許可しない |
-| boxId | ボックス登録番号 | int | o | PK | 登録データを識別 |
-| pokemonid | 図鑑番号 | int | o | PK | ポケモンの番号 |
-| name | 名前 | String | o | PK | ポケモンの名前 |
-| nickname | ニックネーム | String | × | PK | 未入力の場合は、ポケモンの名前と同一とする |
-| gender | 性別 | int | o | PK |  |
-| type | タイプ | String | o | PK | |
+| box_id | ボックス登録番号 | int | o | PK | 登録データを識別 |
+| user_id | ユーザーID | varchar（15） | o | FK |  |
+| pokemon_id | 図鑑番号 | int | o | FK | ポケモンの番号 |
+| nickname | ニックネーム | String | × |  | 未入力の場合は、ポケモンの名前と同一とする |
+| gender | 性別 | int | o |  | 性別を選択する |
