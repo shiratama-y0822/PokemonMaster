@@ -6,7 +6,7 @@
 
 | 項目 | 内容 |
 |---|---|
-| テーブル英名 | pokemon |
+| テーブル英名 | pokemons |
 | テーブル和名 | ポケモン
 | 備考 | ポケモンの情報を管理する |
 
@@ -28,6 +28,4 @@
 | bace_special_attack | とくこう | int | o |  | 種族値。棒グラフとして表示 |
 | base_special_defense | とくぼう | int | o |  | 種族値。棒グラフとして表示 |
 | bace_speed | すばやさ | int | o |  | 種族値。棒グラフとして表示 |
-
-| xx | xx | xx | "o" または "x" | "PK" または "FK" | xx |
 

@@ -14,6 +14,6 @@
 
 | 英名 | 和名 | 型 | 必須 | PK/FK | 備考 |
 |---|---|---|---|---|---|
-| userId | ユーザーID | varchar（15） | o | PK | 重複を許可しない |
+| user_id | ユーザーID | varchar（16） | o | PK | 重複を許可しない |
 | nickname | ニックネーム | varchar（6） | o |  | 重複は許可する |
 | password | パスワード | varchar(60) | o |  | ハッシュ化した値を保存 |
