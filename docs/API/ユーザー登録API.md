@@ -29,7 +29,7 @@
 |---|---|---|---|
 | userId | string(16) | o | ログインに使用するID |
 | nickname | string(6) | o | ログイン後に表示するユーザー名 |
-| password | string(60) | o | ログインに使用するパスワード |
+| password | string(24) | o | ログインに使用するパスワード |
 
 ## レスポンス
 

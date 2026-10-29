@@ -1,4 +1,4 @@
-package com.shiratama.pokemonmaster.user;
+package com.shiratama.pokemonmaster.users;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -6,11 +6,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.shiratama.pokemonmaster.dto.UsersPostRequest;
+import com.shiratama.pokemonmaster.exception.DuplicateUserIdException;
+import com.shiratama.pokemonmaster.repository.User;
+import com.shiratama.pokemonmaster.repository.UsersRepository;
+
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UsersService {
 
-  private final UserRepository userRepository;
+  private final UsersRepository userRepository;
   private final PasswordEncoder passwordEncoder;
 
   @Transactional

@@ -1,4 +1,4 @@
-package com.shiratama.pokemonmaster.user;
+package com.shiratama.pokemonmaster.repository;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

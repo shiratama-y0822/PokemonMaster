@@ -1,10 +1,12 @@
 package com.shiratama.pokemonmaster.common;
 
-import com.shiratama.pokemonmaster.user.DuplicateUserIdException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.shiratama.pokemonmaster.exception.DuplicateUserIdException;
+import com.shiratama.pokemonmaster.exception.LoginFailedException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -15,4 +17,12 @@ public class GlobalExceptionHandler {
     problem.setTitle("Duplicate user ID");
     return problem;
   }
+
+  @ExceptionHandler(LoginFailedException.class)
+  ProblemDetail handleLoginFailed(LoginFailedException e) {
+    ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED, e.getMessage());
+    problem.setTitle("Login failed");
+    return problem;
+  }
+
 }

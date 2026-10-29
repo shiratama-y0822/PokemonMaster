@@ -1,4 +1,4 @@
-package com.shiratama.pokemonmaster.user;
+package com.shiratama.pokemonmaster.exception;
 
 public class DuplicateUserIdException extends RuntimeException {
 
