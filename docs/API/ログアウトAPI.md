@@ -6,7 +6,7 @@
 |---|---|
 | API名称 | ログアウトAPI |
 | HTTPメソッド | POST |
-| URL | /logout |
+| URL | /api/logout |
 | 認証要否 | 要 |
 
 ## リクエスト

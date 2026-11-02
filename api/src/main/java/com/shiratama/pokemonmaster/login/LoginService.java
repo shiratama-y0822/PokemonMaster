@@ -31,10 +31,5 @@ public class LoginService {
     }
 
     return LoginPostResponse.from(user);
-
-    // userIdとpasswordが一致するか確認してほしい
-    // 一致していたらResponseにnicknameとsetCookieを出力してほしい
-    // 不一致の場合は、入力エラー文を表示してほしい
-    //
   }
 }
