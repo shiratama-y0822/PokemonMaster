@@ -4,9 +4,9 @@
 
 | 項目 | 内容 |
 |---|---|
-| API名称 | 図鑑検索結果API |
+| API名称 | 図鑑検索API |
 | HTTPメソッド | GET |
-| URL | /zukan |
+| URL | /api/pokedex |
 | 認証要否 | 要 |
 
 ## リクエスト
@@ -23,7 +23,7 @@
 |---|---|---|---|
 | name | string | x | 部分一致 |
 | pokemonId | int | x | 完全一致 |
-| type | string | x | 最大2種類、AND検索 |
+| typeId | int | x | type1かtype2のor検索 |
 
 ### リクエストボディ
 
@@ -35,9 +35,11 @@
 
 | 英名 | 型 | 備考 |
 |---|---|---|---|
-| pookemonId | int | 図鑑番号 |
-| name | string | 日本語名 |
-| image | String | ポケモンの画像URL |
+| pokemonId | int | 図鑑番号 |
+| name | String | 日本語名 |
+| image | String | ポケモンの画像URL　※例）image/{pokemonId}.png |　
+|  |  |  |　
+
 
 ## ステータスコード
 
@@ -48,6 +50,6 @@
 
 ## 備考
 
-- 検索後、該当ポケモンの名前・画像が一覧で表示される
+- pokemonId,name,imageはArrayで表示する
 - 入力エラーの時、見つかりませんでしたと表示する
 
