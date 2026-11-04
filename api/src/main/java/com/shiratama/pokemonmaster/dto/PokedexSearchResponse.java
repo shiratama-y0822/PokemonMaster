@@ -10,6 +10,6 @@ public record PokedexSearchResponse(
     return new PokedexSearchResponse(
         pokemon.getPokemonId(),
         pokemon.getName(),
-        "image/" + pokemon.getPokemonId() + ".png");
+        "/image/" + pokemon.getPokemonId() + ".png");
   }
 }
