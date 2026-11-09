@@ -22,9 +22,22 @@ public class Box {
   @JoinColumn(name = "pokemon_id", nullable = false)
   private Pokemon pokemon;
 
-  @Column(name = "nickname", length = 6)
+  @Column(name = "nickname", length = 36)
   private String nickname;
 
   @Column(name = "gender", nullable = false)
   private Integer gender;
+
+  public Box(String userId, Pokemon pokemon, String nickname, Integer gender) {
+    this.userId = userId;
+    this.pokemon = pokemon;
+    this.nickname = nickname;
+    this.gender = gender;
+  }
+
+  public void update(Pokemon pokemon, String nickname, Integer gender) {
+    this.pokemon = pokemon;
+    this.nickname = nickname;
+    this.gender = gender;
+  }
 }

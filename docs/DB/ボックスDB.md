@@ -17,5 +17,5 @@
 | box_id | ボックス登録番号 | serial | o | PK | 登録データを識別 |
 | user_id | ユーザーID | varchar（16） | o | FK |  |
 | pokemon_id | 図鑑番号 | int | o | FK | ポケモンの番号 |
-| nickname | ニックネーム | varchar(6) | × |  | 未入力の場合は、ポケモンの名前と同一とする |
+| nickname | ニックネーム | varchar(36) | × |  | 入力するニックネームは6文字制限。未入力の場合は、ポケモンの名前と同一とする |
 | gender | 性別 | int | o |  | 1:オスのみ, 2:メスのみ, 3:不明 |
