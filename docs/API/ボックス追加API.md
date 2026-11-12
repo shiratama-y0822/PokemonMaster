@@ -6,7 +6,7 @@
 |---|---|
 | API名称 | ボックス追加API |
 | HTTPメソッド | POST |
-| URL | /api/box |
+| URL | /api/boxes |
 | 認証要否 | 要 |
 
 ## リクエスト

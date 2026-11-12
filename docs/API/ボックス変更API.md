@@ -6,7 +6,7 @@
 |---|---|
 | API名称 | ボックス変更API |
 | HTTPメソッド | PATCH |
-| URL | /api/box/{boxId} |
+| URL | /api/boxes/{boxId} |
 | 認証要否 | 要 |
 
 ## リクエスト

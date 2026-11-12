@@ -6,7 +6,7 @@
 |---|---|
 | API名称 | ボックス詳細API |
 | HTTPメソッド | GET |
-| URL | /api/box/{boxId} |
+| URL | /api/boxes/{boxId} |
 | 認証要否 | 要 |
 
 ## リクエスト

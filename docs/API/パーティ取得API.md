@@ -6,7 +6,7 @@
 |---|---|
 | API名称 | パーティ取得API |
 | HTTPメソッド | GET |
-| URL | /party |
+| URL | /api/parties |
 | 認証要否 | 要 |
 
 ## リクエスト
@@ -32,12 +32,14 @@
 ## レスポンス
 
 | 英名 | 型 | 備考 |
-|---|---|---|---|
-| partyId | int | パーティアイディー |
+|---|---|---|
+| partyId | int | パーティID |
 | partyName | String | パーティ名 |
-| members | Array | パーティに登録したポケモン一覧 |
-| boxId | int | ボックス登録番号 |
-| position | int | パーティの並び順 |
+| members | Array | パーティに登録したポケモンの一覧 |
+| members[].boxId | int | ボックス登録番号 |
+| members[].position | int | パーティ内の並び順 |
+| members[].pokemonName | String | ポケモン名 |
+| members[].image | String | 画像のパス。例：`/image/2.png` |
 
 ## ステータスコード
 
@@ -48,4 +50,6 @@
 | 500 | サーバー内部のエラー |
 
 ## 備考
+
+- パーティがない場合は `[]` を返す。
 

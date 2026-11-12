@@ -6,12 +6,15 @@ import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.shiratama.pokemonmaster.dto.BoxesDetailResponse;
+import com.shiratama.pokemonmaster.dto.BoxesListResponse;
 import com.shiratama.pokemonmaster.dto.BoxesPatchRequest;
 import com.shiratama.pokemonmaster.dto.BoxesPostRequest;
 import com.shiratama.pokemonmaster.repository.Box;
@@ -19,6 +22,9 @@ import com.shiratama.pokemonmaster.repository.BoxesRepository;
 import com.shiratama.pokemonmaster.repository.Pokemon;
 import com.shiratama.pokemonmaster.repository.PokemonTypesRepository;
 import com.shiratama.pokemonmaster.repository.PokemonsRepository;
+
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.Predicate;
 
 @Service
 @RequiredArgsConstructor
@@ -30,6 +36,40 @@ public class BoxesService {
   @Transactional(readOnly = true)
   public List<Box> findAllByUserId(String userId) {
     return boxesRepository.findByUserIdOrderByBoxIdAsc(userId);
+  }
+
+  @Transactional(readOnly = true)
+  public List<BoxesListResponse> search(
+      String userId, String name, Integer pokemonId, Integer typeId) {
+
+    Specification<Box> criteria = (root, query, cb) -> {
+      List<Predicate> conditions = new ArrayList<>();
+      Join<Box, Pokemon> pokemon = root.join("pokemon");
+
+      conditions.add(cb.equal(root.get("userId"), userId));
+
+      if (name != null && !name.isBlank()) {
+        String keyword = "%" + name.trim() + "%";
+        conditions.add(cb.or(
+            cb.like(pokemon.get("name"), keyword),
+            cb.like(root.get("nickname"), keyword)));
+      }
+      if (pokemonId != null) {
+        conditions.add(cb.equal(pokemon.get("pokemonId"), pokemonId));
+      }
+      if (typeId != null) {
+        conditions.add(cb.or(
+            cb.equal(pokemon.get("type1Id"), typeId),
+            cb.equal(pokemon.get("type2Id"), typeId)));
+      }
+
+      return cb.and(conditions.toArray(new Predicate[0]));
+    };
+
+    return boxesRepository.findAll(
+        criteria, Sort.by("boxId").ascending()).stream()
+        .map(BoxesListResponse::from)
+        .toList();
   }
 
   @Transactional

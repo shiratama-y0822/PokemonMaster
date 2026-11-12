@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
@@ -31,16 +32,19 @@ import com.shiratama.pokemonmaster.repository.Box;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/box")
+@RequestMapping("/api/boxes")
 @RequiredArgsConstructor
 public class BoxesController {
   private final BoxesService boxService;
 
   @GetMapping
-  public List<BoxesListResponse> list(@AuthenticationPrincipal Jwt jwt) {
-    return boxService.findAllByUserId(jwt.getSubject()).stream()
-        .map(BoxesListResponse::from)
-        .toList();
+  public List<BoxesListResponse> list(
+      @AuthenticationPrincipal Jwt jwt,
+      @RequestParam(required = false) String name,
+      @RequestParam(required = false) Integer pokemonId,
+      @RequestParam(required = false) Integer typeId) {
+
+    return boxService.search(jwt.getSubject(), name, pokemonId, typeId);
   }
 
   @GetMapping("/{boxId}")

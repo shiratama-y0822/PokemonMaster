@@ -6,7 +6,7 @@
 |---|---|
 | API名称 | パーティ追加API |
 | HTTPメソッド | POST |
-| URL | /parties/{partyId}/members|
+| URL | /api/parties/{partyId}/members|
 | 認証要否 | 要 |
 
 ## リクエスト
@@ -33,23 +33,29 @@
 
 | 英名 | 型 | 備考 |
 |---|---|---|---|
-| id | int | パーティメンバーの登録データ |
-| partyId | int | パーティアイディー |
+| partyId | int | パーティID |
 | partyName | String | パーティ名 |
-| members | Array | パーティに登録したポケモン一覧 |
-| boxId | int | ボックス登録番号 |
-| position | int | パーティの並び順 |
+| members | Array | パーティに登録したポケモンの一覧 |
+| members[].boxId | int | ボックス登録番号 |
+| members[].position | int | パーティ内の並び順 |
+| members[].pokemonName | String | ポケモン名 |
+| members[].image | String | 画像のパス。例：`/image/2.png` |
 
 ## ステータスコード
 
 | コード | 条件 |
 |---|---|
 | 201 | 正常終了 |
-| 404 | 対象のパーティまたはメンバーが存在しない |
+| 400 | boxId の未入力・0以下 |
+| 401 | 未認証 |
+| 404 | 対象のパーティまたはボックスが存在しない |
+| 409 | 同じboxIdが登録済み、または満員 |
 | 500 | エラー |
 
 ## 備考
 
-- パーティは６つ作成可能
-- ６体まで編成可能
-
+- パーティは6つ作成可能
+- 1パーティにつき6体まで編成可能
+- 1〜6の最初の空き枠へ追加。
+- 同じパーティへの同一 boxId の重複は不可。
+- 6枠が埋まっていたら追加不可
