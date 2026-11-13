@@ -69,6 +69,7 @@ public class SecurityConfig {
                 "/api/login",
                 "/api/users")
             .permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/typeaisyou").permitAll()
             .requestMatchers("/error").permitAll()
             .anyRequest().authenticated())
 
@@ -88,6 +89,7 @@ public class SecurityConfig {
     if (("POST".equals(method)
         && ("/api/login".equals(path)
             || "/api/users".equals(path)))
+        || ("GET".equals(method) && "/api/typeaisyou".equals(path))
         || "/error".equals(path)) {
       return null;
     }

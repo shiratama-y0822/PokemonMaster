@@ -14,4 +14,6 @@ public interface BoxesRepository
 
   @EntityGraph(attributePaths = "pokemon")
   Optional<Box> findByBoxIdAndUserId(Integer boxId, String userId);
+
+  long countByUserId(String userId);
 }

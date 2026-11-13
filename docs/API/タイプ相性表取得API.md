@@ -33,9 +33,9 @@
 
 | 英名 | 型 | 備考 |
 |---|---|---|---|
-| attackTypeId | int | 攻撃タイプID |
-| defenceTypeId | int | 防御タイプID |
-| multiplier | int | ダメージ倍率 |
+| attackTypeId | number | 攻撃タイプID |
+| defenceTypeId | number | 防御タイプID |
+| multiplier | number | ダメージ倍率 |
 
 ## ステータスコード
 
