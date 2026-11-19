@@ -1,9 +1,11 @@
 "use client"
 
 import { ApiError, apiRequest } from "@/lib/api";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -45,8 +47,8 @@ export default function RegisterPage() {
         body: JSON.stringify({ userId, nickname, password }),
       });
 
-      setMessage("登録が完了しました。")
-      ///↑ログイン画面完了後にrouter.push("/login");　に戻す
+      router.push("/login");
+
     } catch (error) {
       if (error instanceof ApiError) {
         if (error.status === 409) {
